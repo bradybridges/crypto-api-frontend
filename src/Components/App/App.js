@@ -83,12 +83,6 @@ class App extends Component {
             fetch={coinDataFetch}
           />
           <GetEndpointDiv
-            title='GET All User Data'
-            endpoint='https://heroku-coin-api.herokuapp.com/api/v1/users'
-            handleClick={this.printUserData}
-            fetch={usersFetch}
-          />
-          <GetEndpointDiv
             title='GET All Coin Data On Date'
             endpoint='https://heroku-coin-api.herokuapp.com/api/v1/coindata/date/:date'
             handleClick={this.printDateData}
@@ -99,12 +93,6 @@ class App extends Component {
             endpoint='https://heroku-coin-api.herokuapp.com/api/v1/coindata/name/:name'
             handleClick={this.printCoinNameData}
             fetch={nameCoinFetch}
-          />
-          <GetEndpointDiv
-            title='GET A User By Username'
-            endpoint='https://heroku-coin-api.herokuapp.com/api/v1/users/:name'
-            handleClick={this.printUser}
-            fetch={userFetch}
           />
           <GetEndpointDiv 
             title='POST New Record' 
@@ -118,6 +106,27 @@ class App extends Component {
               'price <Double>', 
               'marketCap <Double>'
             ]}
+          />
+          <DeleteDiv
+            id='last-div'
+            title='DELETE A Record On A Date'
+            endpoint='https://heroku-coin-api.herokuapp.com/api/v1/coindata/:date'
+            handleClick={this.simulateDeleteRecord}
+            fetch={deleteRecord}
+            parameter='date'
+            type='date'
+          />
+          <GetEndpointDiv
+            title='GET All User Data'
+            endpoint='https://heroku-coin-api.herokuapp.com/api/v1/users'
+            handleClick={this.printUserData}
+            fetch={usersFetch}
+          />
+          <GetEndpointDiv
+            title='GET A User By Username'
+            endpoint='https://heroku-coin-api.herokuapp.com/api/v1/users/:name'
+            handleClick={this.printUser}
+            fetch={userFetch}
           />
           <GetEndpointDiv 
             title='POST A New User' 
@@ -133,19 +142,10 @@ class App extends Component {
           />
           <DeleteDiv
             title='DELETE A User'
-            endpoint='https://heroku-coin-api.herokuapp.com/api/v1/users'
+            endpoint='https://heroku-coin-api.herokuapp.com/api/v1/users/:username'
             handleClick={this.simulateDeleteUser}
             fetch={deleteUser}
             parameter='username'
-          />
-          <DeleteDiv
-            id='last-div'
-            title='DELETE A Record On A Date'
-            endpoint='https://heroku-coin-api.herokuapp.com/api/v1/users'
-            handleClick={this.simulateDeleteRecord}
-            fetch={deleteRecord}
-            parameter='date'
-            type='date'
           />
         </section>
       </main>
